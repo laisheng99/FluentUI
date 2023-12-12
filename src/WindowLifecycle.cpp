@@ -2,6 +2,7 @@
 
 #include "FluApp.h"
 #include "FluRegister.h"
+#include <QGuiApplication>
 
 WindowLifecycle::WindowLifecycle(QObject *parent):QObject{parent}{
 }
@@ -26,6 +27,11 @@ void WindowLifecycle::vsyncEnable(bool enable){
     auto froamt = _window->format();
     froamt.setSwapInterval(enable);
     _window->setFormat(froamt);
+}
+
+void WindowLifecycle::updateLayout(){
+    _window->update();
+    QGuiApplication::processEvents();
 }
 
 QVariant WindowLifecycle::createRegister(QQuickWindow* window,const QString& path){

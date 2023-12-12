@@ -82,6 +82,9 @@ Window {
         }
         lifecycle.onVisible(visible)
     }
+    onScreenChanged: {
+        lifecycle.updateLayout()
+    }
     QtObject{
         id:d
         property bool isFirstVisible: true
