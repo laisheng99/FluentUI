@@ -82,9 +82,6 @@ Window {
         }
         lifecycle.onVisible(visible)
     }
-    onScreenChanged: {
-        lifecycle.updateLayout()
-    }
     QtObject{
         id:d
         property bool isFirstVisible: true
@@ -234,7 +231,7 @@ Window {
     FramelessHelper{
         id:framless_helper
         onReady: {
-            flags = flags | Qt.Window | Qt.CustomizeWindowHint | Qt.WindowTitleHint | Qt.WindowSystemMenuHint | Qt.WindowMinMaxButtonsHint | Qt.WindowCloseButtonHint
+            flags = flags | Qt.Window | Qt.WindowTitleHint | Qt.WindowSystemMenuHint | Qt.WindowMinMaxButtonsHint | Qt.WindowCloseButtonHint
             if(appBar){
                 var appbar = window.appBar
                 window.moveWindowToDesktopCenter()

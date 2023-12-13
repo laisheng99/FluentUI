@@ -29,11 +29,6 @@ void WindowLifecycle::vsyncEnable(bool enable){
     _window->setFormat(froamt);
 }
 
-void WindowLifecycle::updateLayout(){
-    _window->update();
-    QGuiApplication::processEvents();
-}
-
 QVariant WindowLifecycle::createRegister(QQuickWindow* window,const QString& path){
     FluRegister *p = new FluRegister(window);
     p->from(window);
